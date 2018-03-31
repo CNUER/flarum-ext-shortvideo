@@ -1,0 +1,39 @@
+{
+    "name": "cnuer/flarum-ext-shortvideo",
+    "description": "Allow posts to be auto formatted with url.",
+    "type": "flarum-extension",
+    "keywords": ["video","flarum"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "cnuer bbs",
+            "email": "bbs@cnuer.cn"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/cnuer/flarum-ext-ShortVideo/issues",
+        "source": "https://github.com/cnuer/flarum-ext-ShortVideo"
+    },
+    "require": {
+        "flarum/core": "^0.1.0",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "cnuer\\ShortVideo\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "ShortVideo",
+            "icon": {
+                "image": "icon.svg",
+                "backgroundColor": "#000",
+                "backgroundSize": "100%",
+                "backgroundRepeat": "no-repeat",
+                "backgroundPosition": "center",
+                "color": "#fff"
+            }
+        }
+    }
+}
