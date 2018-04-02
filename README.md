@@ -5,6 +5,7 @@
 
 # 准备
 加入video标签支持
+    
     s9e\text-formatter\src\Plugins\BBCodes\Configurator\repository.xml
     
     <bbcode name="VIDEO">
@@ -13,6 +14,8 @@
 			<video controls preload="metadata" poster="{@poster}" src="{@src}" height="{@height}" width="{@width}">{TEXT}</video>
 		]]></template>
 	</bbcode>
+    
+
     
     flarum\flarum-ext-bbcode\src\Listener
     
