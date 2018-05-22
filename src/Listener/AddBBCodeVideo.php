@@ -3,6 +3,7 @@
 namespace cnuer\ShortVideo\Listener;
 
 use Flarum\Event\ConfigureFormatter;
+use Illuminate\Contracts\Events\Dispatcher;
 
 class AddBBCodeVideo
 {
