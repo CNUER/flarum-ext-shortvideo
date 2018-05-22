@@ -61,10 +61,15 @@ class FormatShortVideoUrl
         if(preg_match_all('#^(https?://www\.iesdouyin\.com/share/video/.+?)(?:[\s\b]|$)#ism',$text,$m)){
             $client = new HttpClient();
             foreach($m[1] as &$url){
-                $res = $client->request('GET', $url);
+                $res = $client->request('GET', $url, [
+                    'headers' => [
+                        'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36'
+                        ]
+                    ]
+                );
                 if(200 == $res->getStatusCode()){
                     $content = $res->getBody()->getContents();
-                    if(preg_match('/var data = (.+?"}\]);/is',$content,$m2)){
+                    if(preg_match('/var data = (.+?);\s/is',$content,$m2)){
                         $object = json_decode($m2[1]);
                         if($object){
                             $text = str_replace($url,'[VIDEO poster="'.$object[0]->video->cover->url_list[0].'" src="'.$object[0]->video->play_addr->url_list[0].'" height="'.$object[0]->video->height.'" width="'.$object[0]->video->width.'"]'.$url.'[/VIDEO]',$text);
